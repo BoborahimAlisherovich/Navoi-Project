@@ -1,6 +1,12 @@
 
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.contrib import messages
+from django.urls import reverse
+
+# from .forms import ContactForm,CommentForm
+from .bot import send_message
+from .models import Contact
+from django.views.generic import View
 
 def home_view(request):
     return render(request, "index.html" )
@@ -15,8 +21,23 @@ def blog_single_post_view(request):
 def page_about_us_view(request):
     return render(request, "page-about-us.html")   
 
-def page_contact_view(request):
-    return render(request, "page-contact.html")
+
+class ContactView(View):
+    template_name = "page-contact.html"
+    
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+    
+    def post(self, request, *args, **kwargs): 
+        name = request.POST.get('first_name', '')
+        email = request.POST.get('email', '')
+        message = request.POST.get('description', '')
+        contact = Contact(first_name=name,email=email,description=message)
+        contact.save()
+        
+        send_message(f"Ism: {name}\nEmail: {email}\nText:{message}")
+
+        return HttpResponseRedirect(reverse('home-page'))
 
 
 def page_faq_view(request):

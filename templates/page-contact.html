@@ -15,21 +15,23 @@
 <p class="lead-1 text-dim-gray">Fill out the form or call 650.800.3124.</p>
 
 <div class="pr-lg-5 pt-lg-5 pb-lg-7 pt-md-5 pb-md-0 pt-5 pb-5">
-<form id="contact-us-form" method="post" action="https://www.energeticthemes.com/templates/sanat/assets/php/contact.php">
-<div class="mb-4 pb-2">
-<input class="form-control input-border border-bottom border-1 border-black-pearl" id="form_firstname" type="text" name="fname" placeholder="Name" required>
-</div>
-<div class="mb-4 pb-2">
-<input class="form-control input-border border-bottom border-1 border-black-pearl" id="form_email" type="text" name="lname" placeholder="Email" required>
-</div>
-<div class="mb-4 pb-2">
-<input class="form-control input-border border-bottom border-1 border-black-pearl" id="subject" type="text" name="subject" placeholder="Subject">
-</div>
-<div class="mb-4 pb-2">
-<textarea class="form-control input-border border-bottom border-1 border-black-pearl" id="form_message" name="message" placeholder="Message" rows="5" required></textarea>
-</div>
-<div class="mb-4"> <a class="btn btn-black-pearl" href="#">Submit</a></div>
-</form>
+    <form action="{% url 'contact-page' %}" method="post" class="contact-form">
+        {% csrf_token %}
+        <div class="mb-4 pb-2">
+            <input class="form-control input-border border-bottom border-1 border-black-pearl" id="form_firstname" type="text" name="first_name" placeholder="Name" required>
+        </div>
+        <div class="mb-4 pb-2">
+            <input class="form-control input-border border-bottom border-1 border-black-pearl" id="form_email" type="text" name="email" placeholder="Email" required>
+        </div>
+        <div class="mb-4 pb-2">
+            <input class="form-control input-border border-bottom border-1 border-black-pearl" id="subject" type="text" name="subjact" placeholder="Subject">
+        </div>
+        <div class="mb-4 pb-2">
+            <textarea class="form-control input-border border-bottom border-1 border-black-pearl" id="form_message" name="description" placeholder="Message" rows="5" required></textarea>
+        </div>
+        <div class="mb-4"> <button type="submit" class="btn btn-black-pearl">Submit</button></div>
+    </form>
+    
 </div>
 </div>
 </div>
