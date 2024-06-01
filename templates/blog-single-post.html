@@ -9,10 +9,11 @@
 <div class="container pt-lg-5">
 <div class="row justify-content-lg-center">
 <div class="col-lg-8">
+    {% for NewsArticle in NewsArticles %}
 <header class="entry-header">
-<div class="entry-meta-top"><span class="entry-meta-category"><i class="fas fa-folder"></i><a href="blog-three-col.html">Steels</a></span><span class="entry-author"><i class="far fa-user"></i>Amjad Ali</span><span class="entry-meta-date"> <i class="far fa-clock"></i>April 13, 2020</span>
+<div class="entry-meta-top"><span class="entry-meta-category"><i class="fas fa-folder"></i><a href="blog-three-col.html">Steels</a></span><span class="entry-author"><i class="far fa-user"></i>{{NewsArticle.auther}}</span><span class="entry-meta-date"> <i class="far fa-clock"></i>{{NewsArticle.published_date}}</span>
 </div>
-<h1 class="mb-5 entry-title font-weight-bold">New tunnel stretching all the way from Long Island to Plane Land </h1>
+<h1 class="mb-5 entry-title font-weight-bold">{{NewsArticle.title}} </h1>
 </header>
 <p class="lead-1 mb-4">Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam justo duo dolores et ea rebum.</p>
 <div class="pt-2">
@@ -21,7 +22,7 @@
 </div>
 </div>
 </div>
-<div class="container my-5"><img src="{% static 'assets/images/blog/single-post.jpg' %}" alt="single-post"></div>
+<div class="container my-5"><img src="{{NewsArticle.main_image.url}}" alt="single-post"></div>
 <div class="container">
 <div class="row justify-content-lg-center">
 <div class="col-lg-8 pr-lg-10">
@@ -62,12 +63,13 @@
 <p class="form-submit"><a class="btn btn-black-pearl" href="#">Submit</a></p>
 </form>
 </div>
-
+{% endfor %}
 </div>
 
 </div>
 </div>
 </div>
+
 </div>
 </article>
 

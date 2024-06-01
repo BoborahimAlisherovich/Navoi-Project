@@ -18,16 +18,16 @@
     <form action="{% url 'contact-page' %}" method="post" class="contact-form">
         {% csrf_token %}
         <div class="mb-4 pb-2">
-            <input class="form-control input-border border-bottom border-1 border-black-pearl" id="form_firstname" type="text" name="first_name" placeholder="Name" required>
+            <input class="form-control input-border border-bottom border-1 border-black-pearl" id="form_firstname" type="text" name="first_name" placeholder="ism" required>
         </div>
         <div class="mb-4 pb-2">
             <input class="form-control input-border border-bottom border-1 border-black-pearl" id="form_email" type="text" name="email" placeholder="Email" required>
         </div>
         <div class="mb-4 pb-2">
-            <input class="form-control input-border border-bottom border-1 border-black-pearl" id="subject" type="text" name="subjact" placeholder="Subject">
+            <input class="form-control input-border border-bottom border-1 border-black-pearl" id="subject" type="text" name="subjact" placeholder="Yo'nalish">
         </div>
         <div class="mb-4 pb-2">
-            <textarea class="form-control input-border border-bottom border-1 border-black-pearl" id="form_message" name="description" placeholder="Message" rows="5" required></textarea>
+            <textarea class="form-control input-border border-bottom border-1 border-black-pearl" id="form_message" name="description" placeholder="Xabar" rows="5" required></textarea>
         </div>
         <div class="mb-4"> <button type="submit" class="btn btn-black-pearl">Submit</button></div>
     </form>

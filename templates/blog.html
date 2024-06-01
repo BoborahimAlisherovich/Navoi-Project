@@ -1,4 +1,3 @@
-
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
@@ -15,21 +14,28 @@
 
 <div class="row gx-lg-5 gy-lg-5 gy-3 gx-3 blog-post card-post-style">
 <div class="col-lg-4">
+
+
+
+{% for NewsArticle in NewsArticles %}
 <article>
-<figure class="entry-media"><a href="blog-single-post.html"><img class="lozad" src="../../../energeticthemes.com/templates/sanat/assets/images/blog/b1-lqip.html" data-src="assets/images/blog/b1.jpg" alt="Entry Image" /></a>
+<figure class="entry-media"><a href="{% url 'single-post-page' %}"><img class="lozad" src="../../../energeticthemes.com/templates/sanat/assets/images/blog/b1-lqip.html" data-src="{{NewsArticle.main_image.url}}" alt="Entry Image" /></a>
 </figure>
 <div class="entry-content-wrapper">
 <header class="entry-header">
-<div class="entry-meta-top"><span class="entry-meta-category"><i class="fas fa-folder"></i><a href="blog-three-col.html">Recource</a></span><span class="entry-meta-date"> <i class="far fa-clock"></i>January 20, 2021</span>
+<div class="entry-meta-top"><span class="entry-meta-category"><i class="fas fa-folder"></i><a href="blog-three-col.html">{{NewsArticle.auther}}</a></span><span class="entry-meta-date"> <i class="far fa-clock"></i>{{ NewsArticle.published_date }}</span>
 </div>
-<h2 class="entry-title"><a href="blog-single-post.html">New tunnel stretching all the way from Long Island to Plane Land </a></h2>
+<h2 class="entry-title"><a href="blog-single-post.html">{{ NewsArticle.title }}</a></h2>
 </header>
 <div class="entry-content">
-<p>Cras erosed nisl, imperdiet in nisl rhoncus, lobortis tempus ligula. Duis elementum laoreet congue. In scelerisque metused interdum eros dignissim nisl laoreet.</p>
+<p>{{NewsArticle.content|safe}}</p>
 </div>
 <div class="text-right pt-3"><a href="blog-single-post.html"><i class="h5 fas fa-arrow-right hover"></i></a></div>
 </div>
 </article>
+{% endfor %}
+
+
 </div>
 <div class="col-lg-4">
 <article>

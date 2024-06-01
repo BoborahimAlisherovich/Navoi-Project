@@ -2,21 +2,35 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
-
-from .forms import ContactForm,CommentForm
+from django.views.generic import View,TemplateView
+from .models import Contact,NewsArticle
 from .bot import send_message
-from .models import Contact
-from django.views.generic import View
+
 
 def home_view(request):
     return render(request, "index.html" )
 
 
-def blog_view(request):
-    return render(request, "blog.html")
+# def blog_view(request):
+#     return render(request, "blog.html")
+
+class Blogview(TemplateView):
+    template_name = "blog.html"
+
+    def get_context_data(self,*args, **kwargs):
+        context = super(Blogview, self).get_context_data(*args,**kwargs)
+        context['NewsArticles'] = NewsArticle.objects.all()
+        
+        
+      
+
+        return context
+    
+
 
 def blog_single_post_view(request):
     return render(request, "blog-single-post.html")
+
 
 def page_about_us_view(request):
     return render(request, "page-about-us.html")   
@@ -24,19 +38,24 @@ def page_about_us_view(request):
 
 class ContactView(View):
     template_name = "page-contact.html"
+    # form_class = ContactForm
     
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
+    
+    
     
     def post(self, request, *args, **kwargs): 
         name = request.POST.get('first_name', '')
         email = request.POST.get('email', '')
         message = request.POST.get('description', '')
-        subjact = request.POST.get('subjact', '')
-        contact = Contact(first_name=name,email=email,description=message)
+        subject = request.POST.get('subjact', '')
+        contact = Contact(first_name=name,email=email,description=message,subjact=subject)
+        # contact["form"] = self.form_class()
+       
         contact.save()
         
-        send_message(f"Foydalanuvchi ismi : {name}\nEmail: {email}\nyo'nalish {subjact}\n Text:{message}")
+        send_message(f"Foydalanuvchi ismi : {name}\nEmail: {email}\nyo'nalish {subject}\n Text:{message}")
 
         return HttpResponseRedirect(reverse('home-page'))
 
