@@ -4,7 +4,7 @@ from .models import Contact
 
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ["first_name", "email"]
+    list_display = ["first_name", "email","subjact"]
 
 
     
