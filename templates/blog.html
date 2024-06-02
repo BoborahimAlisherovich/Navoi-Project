@@ -19,7 +19,7 @@
 
 {% for NewsArticle in NewsArticles %}
 <article>
-<figure class="entry-media"><a href="{% url 'single-post-page' %}"><img class="lozad" src="../../../energeticthemes.com/templates/sanat/assets/images/blog/b1-lqip.html" data-src="{{NewsArticle.main_image.url}}" alt="Entry Image" /></a>
+<figure class="entry-media"><a href="{% url 'single-post-page' NewsArticle.slug %}"><img class="lozad" src="../../../energeticthemes.com/templates/sanat/assets/images/blog/b1-lqip.html" data-src="{{NewsArticle.main_image.url}}" alt="Entry Image" /></a>
 </figure>
 <div class="entry-content-wrapper">
 <header class="entry-header">

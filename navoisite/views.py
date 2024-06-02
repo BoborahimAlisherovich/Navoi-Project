@@ -16,6 +16,8 @@ def home_view(request):
 
 class Blogview(TemplateView):
     template_name = "blog.html"
+    model = NewsArticle
+    
 
     def get_context_data(self,*args, **kwargs):
         context = super(Blogview, self).get_context_data(*args,**kwargs)
@@ -28,8 +30,27 @@ class Blogview(TemplateView):
     
 
 
-def blog_single_post_view(request):
-    return render(request, "blog-single-post.html")
+# def blog_single_post_view(request,pk):
+#     context={"news_article":NewsArticle.objects.filter(pk=pk)}
+#     # print(context)
+#     return render(request, template_name="blog-single-post.html",context=context)
+
+
+class SinglePost(TemplateView):
+    template_name = "blog-single-post.html"
+    model = NewsArticle
+    context_object_name = "NewsArticle"
+    
+   
+    def get_context_data(self,*args,id, **kwargs):
+        context = super(SinglePost, self).get_context_data(*args,**kwargs)
+        # context['NewsArticles'] = NewsArticle.objects.filter(id=id)
+        query = self.request.GET.get('q')
+        if query:
+            context['NewsArticles'] = NewsArticle.objects.filter(title__icontains=query)
+        
+        return context
+    
 
 
 def page_about_us_view(request):

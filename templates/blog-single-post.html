@@ -10,23 +10,24 @@
 <div class="row justify-content-lg-center">
 <div class="col-lg-8">
 <header class="entry-header">
-<div class="entry-meta-top"><span class="entry-meta-category"><i class="fas fa-folder"></i><a href="blog-three-col.html">Steels</a></span><span class="entry-author"><i class="far fa-user"></i>Amjad Ali</span><span class="entry-meta-date"> <i class="far fa-clock"></i>April 13, 2020</span>
+<div class="entry-meta-top"><span class="entry-meta-category"><i class="fas fa-folder"></i><a href="blog-three-col.html">Steels</a></span><span class="entry-author"><i class="far fa-user"></i>{{NewsArticle.auther}}</span><span class="entry-meta-date"> <i class="far fa-clock"></i>{{NewsArticle.published_date}}</span>
 </div>
-<h1 class="mb-5 entry-title font-weight-bold">New tunnel stretching all the way from Long Island to Plane Land </h1>
+<h1 class="mb-5 entry-title font-weight-bold">{{NewsArticle.title}} </h1>
 </header>
-<p class="lead-1 mb-4">Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam justo duo dolores et ea rebum.</p>
-<div class="pt-2">
+<p class="lead-1 mb-4">{{NewsArticle.content}}</p>
+<!-- <div class="pt-2">
 <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et sadipscing accusam et justo duo dolores rebum.
+</div> -->
 </div>
 </div>
 </div>
-</div>
-<div class="container my-5"><img src="{% static 'assets/images/blog/single-post.jpg' %}" alt="single-post"></div>
+
+<div class="container my-5"><img src="{{NewsArticle.main.image.url}}" alt="single-post"></div>
 <div class="container">
 <div class="row justify-content-lg-center">
 <div class="col-lg-8 pr-lg-10">
-<h4 class="mb-4">We supply the steels for onshore and offshore platforms</h4>
-<p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et sadipscing accusam et justo duo dolores rebum.
+<h4 class="mb-4">{{title}}</h4>
+<p>{{NewsArticle.content}}</p>
 </div>
 </div>
 <div class="row justify-content-lg-center mt-5">
@@ -34,7 +35,7 @@
 </div>
 <div class="row justify-content-lg-center mt-5">
 <div class="col-lg-8">
-
+<!-- 
 <div class="comments comments-area container-small mt-4" id="comments">
 <div class="comment-respond" id="respond">
 <h3 class="comment-reply-title mt-3" id="reply-title">Leave a Reply</h3>
@@ -61,9 +62,9 @@
 <label for="checkbox"> Save my name, email, and website in this browser for the next time I comment.</label>
 <p class="form-submit"><a class="btn btn-black-pearl" href="#">Submit</a></p>
 </form>
-</div>
+</div> -->
 
-</div>
+<!-- </div> -->
 
 </div>
 </div>
