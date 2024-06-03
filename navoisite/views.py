@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import View,TemplateView
-from .models import Contact,NewsArticle
+from .models import Contact,NewsArticle,Elon
 from .bot import send_message
 
 
@@ -100,8 +100,30 @@ def page_partners_view(request):
     return render(request, "page-partners.html")
 
 
-def page_services_view(request):
-    return render(request, "page-services.html")
+# def page_services_view(request):
+#     return render(request, "page-services.html")
+
+# class Services(TemplateView):
+#     template_name = "page-services.html"
+#     model = Elon
+#     context_object_name = "Elon"
+
+#     def get_context_data(self, *args, **kwargs):
+#         context = super(Services, self).get_context_data(*args, **kwargs)
+#         # Get the single NewsArticle based on the id (pk) provided in the URL
+#         news_article_id = self.kwargs.get('pk')
+#         context['Elonlar'] = get_object_or_404(Elon, pk=news_article_id)
+#         return context
+
+class Services(TemplateView):
+    template_name = "page-services.html"
+    model = Elon
+    
+
+    def get_context_data(self,*args, **kwargs):
+        context = super(Services, self).get_context_data(*args,**kwargs)
+        context['Elonlar'] = Elon.objects.all()
+
 
 def page_single_service_view(request):
     return render(request, "page-single-service.html")

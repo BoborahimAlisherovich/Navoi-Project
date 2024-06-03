@@ -29,11 +29,12 @@ class NewsArticle(models.Model):
     
 
 class Elon(models.Model):
-    mavzu = models.CharField(max_length=200)
+    title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
     content = RichTextField() 
     # hozir_vaqt = models.DateTimeField(auto_now_add=True)
-    rasm = models.ImageField(upload_to="Elons/photo")
+    image = models.ImageField(upload_to="Elons/photo")
+
 
 
 
