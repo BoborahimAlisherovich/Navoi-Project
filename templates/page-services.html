@@ -23,7 +23,7 @@
 
 <div class="row gx-lg-5 mt-5">
     {% for elon in Elonlar %}
-<div class="col-lg-4"><a href="page-single-service.html"><img src="{{ elon.image.url }}" alt="home2"></a>
+<div class="col-lg-4"><a href="{% url 'single-service-page' elon.pk %}"><img src="{{ elon.image.url }}" alt="home2"></a>
 <div class="bg-white">
 <div class="px-4 py-4">
 <div class="px-2 py-3"><a href="page-single-service.html">

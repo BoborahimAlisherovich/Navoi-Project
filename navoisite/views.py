@@ -109,8 +109,21 @@ class Services(TemplateView):
     
 
 
-def page_single_service_view(request):
-    return render(request, "page-single-service.html")
+# def page_single_service_view(request):
+#     return render(request, "page-single-service.html")
+
+class single_service(TemplateView):
+    template_name = "page-single-service.html"
+    model = Elon
+    context_object_name = "Elon"
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(single_service, self).get_context_data(*args, **kwargs)
+       
+        news_article_id = self.kwargs.get('pk')
+        context['Elonlar'] = get_object_or_404(Elon, pk=news_article_id)
+        return context
+
 
 
 def page_turt_view(request):
