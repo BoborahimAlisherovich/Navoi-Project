@@ -5,16 +5,22 @@
 <article class="entry">
 <div class="entry-content">
 
-<div class="container-fluid px-0 mb-5 featured-image-blog"></div>
+<!-- <div class="container-fluid px-0 mb-5 featured-image-blog"></div> -->
+<!-- <div class="container my-5"><img src="{{ NewsArticle.main_image.url }}" alt="single-post"></div> -->
+
 <div class="container pt-lg-5">
 <div class="row justify-content-lg-center">
 <div class="col-lg-8">
 <header class="entry-header">
-<div class="entry-meta-top"><span class="entry-meta-category"><i class="fas fa-folder"></i><a href="blog-three-col.html">Steels</a></span><span class="entry-author"><i class="far fa-user"></i>{{NewsArticle.auther}}</span><span class="entry-meta-date"> <i class="far fa-clock"></i>{{NewsArticle.published_date}}</span>
+<div class="entry-meta-top"><span class="entry-meta-category"><i class="fas fa-folder"></i><a href="blog-three-col.html">Steels</a></span><span class="entry-author"><i class="far fa-user"></i>{{ NewsArticle.author }}</span><span class="entry-meta-date"> <i class="far fa-clock"></i>{{NewsArticle.published_date}}</span>
 </div>
-<h1 class="mb-5 entry-title font-weight-bold">{{NewsArticle.title}} </h1>
+
+
+
+<h1 class="mb-5 entry-title font-weight-bold">{{ NewsArticle.title }} </h1>
+
 </header>
-<p class="lead-1 mb-4">{{NewsArticle.content}}</p>
+<p class="lead-1 mb-4">{{NewsArticle.content | safe}}</p>
 <!-- <div class="pt-2">
 <p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et sadipscing accusam et justo duo dolores rebum.
 </div> -->
@@ -22,12 +28,11 @@
 </div>
 </div>
 
-<div class="container my-5"><img src="{{NewsArticle.main.image.url}}" alt="single-post"></div>
 <div class="container">
 <div class="row justify-content-lg-center">
 <div class="col-lg-8 pr-lg-10">
-<h4 class="mb-4">{{title}}</h4>
-<p>{{NewsArticle.content}}</p>
+<!-- <h4 class="mb-4">{{ title }}</h4> -->
+<!-- <p>{{ NewsArticle.content }}</p> -->
 </div>
 </div>
 <div class="row justify-content-lg-center mt-5">
@@ -35,36 +40,6 @@
 </div>
 <div class="row justify-content-lg-center mt-5">
 <div class="col-lg-8">
-<!-- 
-<div class="comments comments-area container-small mt-4" id="comments">
-<div class="comment-respond" id="respond">
-<h3 class="comment-reply-title mt-3" id="reply-title">Leave a Reply</h3>
-<p>Your email address will not be published. Required fields are marked *</p>
-<form class="comment-form" id="commentform" action="#" method="post" novalidate>
-<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p>
-<p class="comment-form-comment form-group">
-<label for="comment">Comment</label>
-<textarea class="form-control input-border border-bottom border-1 border-black-pearl" id="comment" name="comment" cols="45" rows="7" required="required"></textarea>
-</p>
-<p class="comment-form-author form-group">
-<label for="author">Name <span class="required">*</span></label>
-<input class="form-control input-border border-bottom border-1 border-black-pearl" id="author" name="author" type="text" value size="30" maxlength="245" required="required">
-</p>
-<p class="comment-form-email form-group">
-<label for="email">Email <span class="required">*</span></label>
-<input class="form-control input-border border-bottom border-1 border-black-pearl" id="email" name="email" type="email" value size="30" maxlength="100" aria-describedby="email-notes" required="required">
-</p>
-<p class="comment-form-url form-group">
-<label for="url">Website</label>
-<input class="form-control input-border border-bottom border-1 border-black-pearl" id="url" type="url" name="url" size="30" maxlength="200" value>
-</p>
-<input id="checkbox" type="checkbox" name="checkbox" value="Email">
-<label for="checkbox"> Save my name, email, and website in this browser for the next time I comment.</label>
-<p class="form-submit"><a class="btn btn-black-pearl" href="#">Submit</a></p>
-</form>
-</div> -->
-
-<!-- </div> -->
 
 </div>
 </div>

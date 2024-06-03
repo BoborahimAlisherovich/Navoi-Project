@@ -35,21 +35,22 @@ class Blogview(TemplateView):
 #     # print(context)
 #     return render(request, template_name="blog-single-post.html",context=context)
 
+from django.shortcuts import get_object_or_404
+
+
 
 class SinglePost(TemplateView):
     template_name = "blog-single-post.html"
     model = NewsArticle
     context_object_name = "NewsArticle"
-    
-   
-    def get_context_data(self,*args,id, **kwargs):
-        context = super(SinglePost, self).get_context_data(*args,**kwargs)
-        # context['NewsArticles'] = NewsArticle.objects.filter(id=id)
-        query = self.request.GET.get('q')
-        if query:
-            context['NewsArticles'] = NewsArticle.objects.filter(title__icontains=query)
-        
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(SinglePost, self).get_context_data(*args, **kwargs)
+        # Get the single NewsArticle based on the id (pk) provided in the URL
+        news_article_id = self.kwargs.get('pk')
+        context['NewsArticle'] = get_object_or_404(NewsArticle, pk=news_article_id)
         return context
+
     
 
 

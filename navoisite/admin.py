@@ -10,6 +10,7 @@ class ContactAdmin(admin.ModelAdmin):
 
 class NewArticleAdmin(admin.ModelAdmin):
     list_display = ('title','author','published_date','short_content')
+    prepopulated_fields = {"slug": ("title",)}
 
     def short_content(self, obj):
         return obj.content[:50]
