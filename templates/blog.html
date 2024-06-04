@@ -14,22 +14,22 @@
     <div class="col-lg-4">
         <article>
             <figure class="entry-media">
-                <a href="{% url 'single-post' NewsArticle.pk %}">
+                <a href="{% url 'single-post' NewsArticle.slug %}">
                     <img class="lozad" src="../../../energeticthemes.com/templates/sanat/assets/images/blog/b1-lqip.html" data-src="{{NewsArticle.main_image.url}}" alt="Entry Image" />
                 </a>
             </figure>
             <div class="entry-content-wrapper">
                 <header class="entry-header">
                     <div class="entry-meta-top">
-                        <span class="entry-meta-category"><i class="fas fa-folder"></i><a href="{% url 'single-post' NewsArticle.pk %}">{{NewsArticle.author}}</a></span>
+                        <span class="entry-meta-category"><i class="fas fa-folder"></i><a href="{% url 'single-post' NewsArticle.slug %}">{{NewsArticle.author}}</a></span>
                         <span class="entry-meta-date"><i class="far fa-clock"></i>{{ NewsArticle.published_date }}</span>
                     </div>
-                    <h2 class="entry-title"><a href="{% url 'single-post' NewsArticle.pk %}">{{ NewsArticle.title }}</a></h2>
+                    <h2 class="entry-title"><a href="{% url 'single-post' NewsArticle.slug %}">{{ NewsArticle.title }}</a></h2>
                 </header>
                 <div class="entry-content">
                     <!-- <p>{{NewsArticle.content|safe}}</p> -->
                 </div>
-                <div class="text-right pt-3"><a href="{% url 'single-post' NewsArticle.pk %}"><i class="h5 fas fa-arrow-right hover"></i></a></div>
+                <div class="text-right pt-3"><a href="{% url 'single-post' NewsArticle.slug %}"><i class="h5 fas fa-arrow-right hover"></i></a></div>
             </div>
         </article>
     </div>

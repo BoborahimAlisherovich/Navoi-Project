@@ -1,7 +1,4 @@
 from django.db import models
-# from ckeditor_uploader.fields import RichTextUploadingField
-
-
 
 class Contact(models.Model):
     first_name = models.CharField(max_length=50)
@@ -12,8 +9,6 @@ class Contact(models.Model):
     def __str__(self):
         return self.first_name
     
-
-# from django.db import models
 from ckeditor.fields import RichTextField
 
 class NewsArticle(models.Model):
@@ -35,7 +30,3 @@ class Elon(models.Model):
     published_date = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to="Elons/photo")
     description =  models.TextField()
-
-
-
-

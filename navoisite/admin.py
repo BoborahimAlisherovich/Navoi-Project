@@ -28,6 +28,3 @@ class ElonAdmin(admin.ModelAdmin):
     short_content.short_description = 'Content'
 
 admin.site.register(Elon, ElonAdmin)
-
-    
-
