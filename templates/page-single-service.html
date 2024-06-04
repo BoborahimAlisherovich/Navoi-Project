@@ -7,13 +7,31 @@
 <div class="py-lg-8 py-md-7 py-6">
 <div class="container">
 <div class="row">
-<div class="col-lg-6 order-lg-1"><img src="{{ elon.image.url }}" alt="Single-Service"></div>
+<div class="col-lg-6 order-lg-1"><img src="{{Elonlar.image.url}}"z alt="Single-Service"></div>
 <div class="col-lg-6 my-auto">
 <div class="mt-lg-0 mt-md-5 mt-5">
 <h5 class="text-school-yellow mb-3">Service</h5>
-<h2 class="text-white mb-4">{{ elon.title }}</h2>
-<p class="lead-1 text-silver mb-4">{{ elon.content }} </p>
+<h2 class="text-white mb-4">{{Elonlar.title}}</h2>
+<p class="lead-1 text-silver mb-4">{{Elonlar.description}}</p>
 </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white-smoke">
+<div class="py-lg-7 py-md-7 py-6">
+<div class="container">
+<div class="px-lg-10">
+<div class="mx-lg-6">
+<!-- <h3 class="mb-4">Select Design Preference</h3> -->
+<p>{{Elonlar.content | safe}}</p>
+<!-- <h3 class="mb-4 mt-lg-6 mt-md-5 mt-5">We Get to Work on Your Vision</h3>
+<p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.</p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+<h3 class="mb-4 mt-lg-6 mt-md-5 mt-5">We go in design phase.</h3>
+<p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.</p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+<h3 class="mb-4 mt-lg-6 mt-md-5 mt-5">Let’s Build and Place.</h3>
+<p class="mb-1">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p> -->
 </div>
 </div>
 </div>
@@ -25,7 +43,7 @@
 <div class="col-lg-8 offset-2 text-center"></div>
 <div class="col-sm-8 offset-sm-2 text-center">
 <div class="mb-4">
-<h2>Still no luck? We can help!</h2>
+<h2>Hali ham omad yo'qmi? Biz yordam bera olamiz!</h2>
 </div>
 <div class="pt-lg-3"><a class="btn btn-black-pearl" href="{% url 'contact-page' %}">Submit A Request</a></div>
 </div>

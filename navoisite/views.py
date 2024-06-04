@@ -112,6 +112,8 @@ class Services(TemplateView):
 # def page_single_service_view(request):
 #     return render(request, "page-single-service.html")
 
+
+
 class single_service(TemplateView):
     template_name = "page-single-service.html"
     model = Elon

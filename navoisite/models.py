@@ -34,6 +34,7 @@ class Elon(models.Model):
     content = RichTextField() 
     # hozir_vaqt = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to="Elons/photo")
+    description =  models.TextField()
 
 
 
