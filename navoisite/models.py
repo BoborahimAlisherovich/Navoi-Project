@@ -32,7 +32,7 @@ class Elon(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
     content = RichTextField() 
-    # hozir_vaqt = models.DateTimeField(auto_now_add=True)
+    published_date = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to="Elons/photo")
     description =  models.TextField()
 

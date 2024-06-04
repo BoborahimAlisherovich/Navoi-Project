@@ -2,9 +2,8 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
-from django.views.generic import View,TemplateView
+from django.views.generic import View,TemplateView,ListView
 from .models import Contact,NewsArticle,Elon
-from .bot import send_message
 
 
 def home_view(request):
@@ -73,9 +72,6 @@ class ContactView(View):
         # contact["form"] = self.form_class()
        
         contact.save()
-        
-        send_message(f"Foydalanuvchi ismi : {name}\nEmail: {email}\nyo'nalish {subject}\n Text:{message}")
-
         return HttpResponseRedirect(reverse('home-page'))
 
 
@@ -98,14 +94,16 @@ def page_partners_view(request):
 
 
 
-class Services(TemplateView):
+class Services(ListView):
     template_name = "page-services.html"
     model = Elon
+    context_object_name = "Elonlar"
+    paginate_by = 2
 
-    def get_context_data(self,*args, **kwargs):
-        context = super(Services, self).get_context_data(*args,**kwargs)
-        context['Elonlar'] = Elon.objects.all()
-        return context
+    # def get_context_data(self,*args, **kwargs):
+    #     context = super(Services, self).get_context_data(*args,**kwargs)
+    #     # context['Elonlar'] = Elon.objects.all()
+    #     return context
     
 
 
@@ -113,6 +111,7 @@ class Services(TemplateView):
 #     return render(request, "page-single-service.html")
 
 
+from django.core.paginator import Paginator
 
 class single_service(TemplateView):
     template_name = "page-single-service.html"
@@ -122,8 +121,8 @@ class single_service(TemplateView):
     def get_context_data(self, *args, **kwargs):
         context = super(single_service, self).get_context_data(*args, **kwargs)
        
-        news_article_id = self.kwargs.get('pk')
-        context['Elonlar'] = get_object_or_404(Elon, pk=news_article_id)
+        news_article_slug = self.kwargs.get('slug')
+        context['Elonlar'] = get_object_or_404(Elon, slug=news_article_slug)
         return context
 
 

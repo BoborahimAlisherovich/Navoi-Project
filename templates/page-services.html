@@ -21,16 +21,16 @@
         <div class="col-lg-4">
             <div class="bg-white">
                 <div class="px-4 py-4">
-                    <a href="{% url 'single-service-page' elon.pk %}">
+                    <a href="{% url 'single-service-page' elon.slug %}">
                         <img style="width: 400px; height: 300px;" src="{{ elon.image.url }}" alt="{{ elon.title }}">
                     </a>
                     <div class="px-2 py-3">
-                        <a href="{% url 'single-service-page' elon.pk %}">
+                        <a href="{% url 'single-service-page' elon.slug %}">
                             <h4 class="mb-3 hover-color">{{ elon.title }}</h4>
                         </a>
-                        <p class="text-dim-gray mb-4">{{ elon.content | safe }}</p>
+                        <p class="text-dim-gray mb-4">{{ elon.description }}</p>
                         <div class="text-right pt-2">
-                            <a href="{% url 'single-service-page' elon.pk %}">
+                            <a href="{% url 'single-service-page' elon.slug %}">
                                 <i class="h5 fas fa-arrow-right hover"></i>
                             </a>
                         </div>
@@ -39,9 +39,47 @@
             </div>
         </div>
     {% endfor %}
+
+</div>
+</article>
+{% for contact in page_obj %}
+    {# Each "contact" is a Contact model object. #}
+    {{ contact.full_name|upper }}<br>
+
+{% endfor %}
+
+<div class="container" style="padding-left: 30%;">
+    <div class="pagination" >
+        <center>
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1">&laquo; first</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">previous</a>
+                </li>
+            {% endif %}
+
+            <li class="page-item disabled">
+                <span class="page-link">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+            </li>
+
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">next</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                </li>
+            {% endif %}
+        </ul>
+    </center>
+    </div>
 </div>
 
 
-</article>
 
 {% endblock content %}
